@@ -12,14 +12,27 @@ public class treballadors implements Serializable {
 
     int telefon;
 
+    String departament;
+
+    public String getDepartament() {
+        return departament;
+    }
+
+    public void setDepartament(String departament) {
+        this.departament = departament;
+    }
+
     public treballadors() {
     }
 
-    public treballadors(String nom, int id, String adreça, int telefon) {
+
+
+    public treballadors(String nom, int id, String adreça, int telefon, String departament) {
         this.nom = nom;
         this.id = id;
         this.adreça = adreça;
         this.telefon = telefon;
+        this.departament = departament;
     }
 
     public String getNom() {
@@ -61,6 +74,7 @@ public class treballadors implements Serializable {
                 ", id=" + id +
                 ", adreça='" + adreça + '\'' +
                 ", telefon=" + telefon +
+                ", departament='" + departament + '\'' +
                 '}';
     }
 }

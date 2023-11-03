@@ -237,8 +237,11 @@ public class Main {
                             System.out.println("introdueix la adreça del treballador: ");
                             String adreça = sc.nextLine();
 
+                            System.out.println("Escriu el departament on treballara el treballador:");
+                            String departament = sc.nextLine();
 
-                            treballadors t = new treballadors(nom, id, adreça, tlf);
+
+                            treballadors t = new treballadors(nom, id, adreça, tlf, departament);
                             llistaTreballadors.add(t);
                         }
                     }
@@ -298,7 +301,11 @@ public class Main {
                             System.out.println("introdueix la adreça del professor: ");
                             String adreça = sc.nextLine();
 
-                            professors p = new professors(nom, id, tlf, adreça);
+                            System.out.println("Introdueix el id del curs que impartira el professor");
+                            int idcurs = sc.nextInt();
+                            sc.nextLine();
+
+                            professors p = new professors(nom, id, tlf, adreça, idcurs);
                             llistaProfessors.add(p);
                         }
                     }
@@ -355,9 +362,6 @@ public class Main {
                             int preu = sc.nextInt();
                             sc.nextLine();
 
-                            /* System.out.println("introdueix una asignatura per al curs: ");
-                            String assingatura = sc.nextLine(); */
-
                             System.out.println("El curs té assingatures optatives? Escriu Si o aprenta Enter:");
                             String condicional = sc.nextLine();
 
@@ -404,7 +408,11 @@ public class Main {
                         int hores = sc.nextInt();
                         sc.nextLine();
 
-                        assignatures a = new assignatures(hores, nom);
+                        System.out.println("Introdueix el id del curs al que pertany:");
+                        int idcurs = sc.nextInt();
+                        sc.nextLine();
+
+                        assignatures a = new assignatures(hores, nom, idcurs);
                         llistaAssignatures.add(a);
 
                     }
@@ -625,7 +633,9 @@ public class Main {
                             sc.nextLine();
                             t.setTelefon(nouTelefon);
 
-
+                            System.out.println("Escriu el departament del treballador:");
+                            String departament = sc.nextLine();
+                            t.setDepartament(departament);
 
                             System.out.println("Dades del treballador actualitzades.");
                             encontrado = true;
@@ -674,7 +684,10 @@ public class Main {
                             sc.nextLine();
                             p.setTelefon(nouTelefon);
 
-                            // Continua actualitzant altres camps amb t.setXXX segons sigui necessari
+                            System.out.println("Introdueix el id del curs que impartira el professor");
+                            int idcurs = sc.nextInt();
+                            sc.nextLine();
+                            p.setIdCurs(idcurs);
 
                             System.out.println("Dades del professor actualitzades.");
                             encontrado = true;
@@ -772,6 +785,11 @@ public class Main {
                             int nousHores = sc.nextInt();
                             sc.nextLine();
                             assign.setDuradaHores(nousHores);
+
+                            System.out.println("Introdueix el id del curs al que pertany:");
+                            int assignaturaidcurs = sc.nextInt();
+                            sc.nextLine();
+                            assign.setIdCurs(assignaturaidcurs);
 
                             System.out.println("Dades de l'assignatura actualitzades.");
                             encontrado = true;
@@ -902,7 +920,7 @@ public class Main {
                             for (professors p : llistaProfessors) {
                                 oos.writeObject(p);
                             }
-                            System.out.println("Alumne eliminat correctament");
+                            System.out.println("Professor eliminat correctament");
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

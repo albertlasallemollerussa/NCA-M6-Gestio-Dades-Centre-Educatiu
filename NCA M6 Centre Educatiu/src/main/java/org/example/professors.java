@@ -10,14 +10,25 @@ public class professors implements Serializable {
 
     String adreça;
 
+    int idCurs;
+
     public professors() {
     }
 
-    public professors(String nom, int id, int telefon, String adreça) {
+    public int getIdCurs() {
+        return idCurs;
+    }
+
+    public void setIdCurs(int idCurs) {
+        this.idCurs = idCurs;
+    }
+
+    public professors(String nom, int id, int telefon, String adreça, int idCurs) {
         this.nom = nom;
         this.id = id;
         this.telefon = telefon;
         this.adreça = adreça;
+        this.idCurs = idCurs;
     }
 
     public String getNom() {
@@ -59,6 +70,7 @@ public class professors implements Serializable {
                 ", id=" + id +
                 ", telefon=" + telefon +
                 ", adreça='" + adreça + '\'' +
+                ", idCurs=" + idCurs +
                 '}';
     }
 }

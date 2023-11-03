@@ -8,12 +8,23 @@ public class assignatures implements Serializable {
 
     String nom;
 
+    int idCurs;
+
+    public int getIdCurs() {
+        return idCurs;
+    }
+
+    public void setIdCurs(int idCurs) {
+        this.idCurs = idCurs;
+    }
+
     public assignatures() {
     }
 
-    public assignatures(int duradaHores, String nom) {
+    public assignatures(int duradaHores, String nom, int idCurs) {
         DuradaHores = duradaHores;
         this.nom = nom;
+        this.idCurs = idCurs;
     }
 
     public int getDuradaHores() {
@@ -37,6 +48,7 @@ public class assignatures implements Serializable {
         return "assignatures{" +
                 "DuradaHores=" + DuradaHores +
                 ", nom='" + nom + '\'' +
+                ", idCurs=" + idCurs +
                 '}';
     }
 }
