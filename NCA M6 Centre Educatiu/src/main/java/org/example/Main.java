@@ -176,8 +176,27 @@ public class Main {
                             int tlfTutor = sc.nextInt();
                             sc.nextLine();
 
-                            alumnes a = new alumnes(tlf, nom, adreça, edat, id, tlfTutor);
-                            llistaAlumnes.add(a);
+                            boolean trobarID = false;
+                            do{
+
+                                System.out.println("Introdueix el id del curs que fara l'alumne:");
+                                int idcurs = sc.nextInt();
+                                sc.nextLine();
+
+                                for (curs c: llistaCurs){
+                                    if (c.getId() == idcurs){
+
+                                        alumnes a = new alumnes(tlf, nom, adreça, edat, id, tlfTutor, idcurs);
+                                        llistaAlumnes.add(a);
+                                        trobarID = true;
+
+                                    }else{
+                                        System.out.println("No hi ha cap curs amb el ID: "+idcurs);
+                                    }
+                                }
+
+                            }while(!trobarID);
+
                         }
                     }
 
@@ -301,12 +320,28 @@ public class Main {
                             System.out.println("introdueix la adreça del professor: ");
                             String adreça = sc.nextLine();
 
-                            System.out.println("Introdueix el id del curs que impartira el professor");
-                            int idcurs = sc.nextInt();
-                            sc.nextLine();
+                            boolean trobarID = false;
+                            do{
 
-                            professors p = new professors(nom, id, tlf, adreça, idcurs);
-                            llistaProfessors.add(p);
+                                System.out.println("Introdueix el id del curs que impartira el professor");
+                                int idcurs = sc.nextInt();
+                                sc.nextLine();
+
+                                for (curs c: llistaCurs){
+                                    if (c.getId() == idcurs){
+
+                                        professors p = new professors(nom, id, tlf, adreça, idcurs);
+                                        llistaProfessors.add(p);
+                                        trobarID = true;
+
+                                    }else{
+                                        System.out.println("No hi ha cap curs amb el ID: "+idcurs);
+                                    }
+                                }
+
+
+                            }while(!trobarID);
+
                         }
                     }
 
@@ -408,12 +443,26 @@ public class Main {
                         int hores = sc.nextInt();
                         sc.nextLine();
 
-                        System.out.println("Introdueix el id del curs al que pertany:");
-                        int idcurs = sc.nextInt();
-                        sc.nextLine();
+                        boolean trobarID = false;
+                        do{
 
-                        assignatures a = new assignatures(hores, nom, idcurs);
-                        llistaAssignatures.add(a);
+                            System.out.println("Introdueix el id del curs al que pertany:");
+                            int idcurs = sc.nextInt();
+                            sc.nextLine();
+
+                            for (curs c: llistaCurs){
+                                if (c.getId() == idcurs){
+
+                                    assignatures a = new assignatures(hores, nom, idcurs);
+                                    llistaAssignatures.add(a);
+                                    trobarID = true;
+
+                                }else{
+                                    System.out.println("No hi ha cap curs amb el ID: "+idcurs);
+                                }
+                            }
+
+                        }while(!trobarID);
 
                     }
 
@@ -584,7 +633,28 @@ public class Main {
 
                             System.out.println("Introdueix el telèfon del tutor legal de l'alumne:");
                             int tlfLegal = sc.nextInt();
+                            sc.nextLine();
                             a.setTelefonTutorLegal(tlfLegal);
+
+                            boolean trobarID = false;
+                            do{
+
+                                System.out.println("Introdueix el id del curs que fara l'alumne:");
+                                int idcurs = sc.nextInt();
+                                sc.nextLine();
+
+                                for (curs c: llistaCurs){
+                                    if (c.getId() == idcurs){
+
+                                        a.setIdcurs(idcurs);
+                                        trobarID = true;
+
+                                    }else{
+                                        System.out.println("No hi ha cap curs amb el ID: "+idcurs);
+                                    }
+                                }
+
+                            }while(!trobarID);
 
                             System.out.println("Dades de l'alumne actualitzades.");
                             encontrado = true;
@@ -670,7 +740,7 @@ public class Main {
                         if (p.getId() == idModificar) {
                             System.out.println("Professor seleccionat: " + p.toString());
 
-                            // Aquí demana y actualitza les dades del treballador
+
                             System.out.println("Introdueix el nom del professor:");
                             String nouNom = sc.nextLine();
                             p.setNom(nouNom);
@@ -684,10 +754,26 @@ public class Main {
                             sc.nextLine();
                             p.setTelefon(nouTelefon);
 
-                            System.out.println("Introdueix el id del curs que impartira el professor");
-                            int idcurs = sc.nextInt();
-                            sc.nextLine();
-                            p.setIdCurs(idcurs);
+                            boolean trobarID = false;
+                            do{
+
+                                System.out.println("Introdueix el id del curs que impartira el professor");
+                                int idcurs = sc.nextInt();
+                                sc.nextLine();
+
+                                for (curs c: llistaCurs){
+                                    if (c.getId() == idcurs){
+
+                                        p.setIdCurs(idcurs);
+                                        trobarID = true;
+
+                                    }else{
+                                        System.out.println("No hi ha cap curs amb el ID: "+idcurs);
+                                    }
+                                }
+
+
+                            }while(!trobarID);
 
                             System.out.println("Dades del professor actualitzades.");
                             encontrado = true;
@@ -786,10 +872,25 @@ public class Main {
                             sc.nextLine();
                             assign.setDuradaHores(nousHores);
 
-                            System.out.println("Introdueix el id del curs al que pertany:");
-                            int assignaturaidcurs = sc.nextInt();
-                            sc.nextLine();
-                            assign.setIdCurs(assignaturaidcurs);
+                            boolean trobarID = false;
+                            do{
+
+                                System.out.println("Introdueix el id del curs a la que pertany l'assignatura:");
+                                int idcurs = sc.nextInt();
+                                sc.nextLine();
+
+                                for (curs c: llistaCurs){
+                                    if (c.getId() == idcurs){
+
+                                        assign.setIdCurs(idcurs);
+                                        trobarID = true;
+
+                                    }else{
+                                        System.out.println("No hi ha cap curs amb el ID: "+idcurs);
+                                    }
+                                }
+
+                            }while(!trobarID);
 
                             System.out.println("Dades de l'assignatura actualitzades.");
                             encontrado = true;
@@ -1010,5 +1111,3 @@ public class Main {
         } while (numero != 5);
     }
 }
-
-
