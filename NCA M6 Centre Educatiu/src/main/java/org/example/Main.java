@@ -189,6 +189,7 @@ public class Main {
                                         alumnes a = new alumnes(tlf, nom, adreça, edat, id, tlfTutor, idcurs);
                                         llistaAlumnes.add(a);
                                         trobarID = true;
+                                        break;
 
                                     }else{
                                         System.out.println("No hi ha cap curs amb el ID: "+idcurs);
@@ -333,6 +334,7 @@ public class Main {
                                         professors p = new professors(nom, id, tlf, adreça, idcurs);
                                         llistaProfessors.add(p);
                                         trobarID = true;
+                                        break;
 
                                     }else{
                                         System.out.println("No hi ha cap curs amb el ID: "+idcurs);
@@ -456,6 +458,7 @@ public class Main {
                                     assignatures a = new assignatures(hores, nom, idcurs);
                                     llistaAssignatures.add(a);
                                     trobarID = true;
+                                    break;
 
                                 }else{
                                     System.out.println("No hi ha cap curs amb el ID: "+idcurs);
@@ -648,6 +651,7 @@ public class Main {
 
                                         a.setIdcurs(idcurs);
                                         trobarID = true;
+                                        break;
 
                                     }else{
                                         System.out.println("No hi ha cap curs amb el ID: "+idcurs);
@@ -766,6 +770,7 @@ public class Main {
 
                                         p.setIdCurs(idcurs);
                                         trobarID = true;
+                                        break;
 
                                     }else{
                                         System.out.println("No hi ha cap curs amb el ID: "+idcurs);
@@ -884,6 +889,7 @@ public class Main {
 
                                         assign.setIdCurs(idcurs);
                                         trobarID = true;
+                                        break;
 
                                     }else{
                                         System.out.println("No hi ha cap curs amb el ID: "+idcurs);
