@@ -1,4 +1,4 @@
-# NCA-M6-Gesti-Dades-Centre-Educatiu
+# NCA-M6-Gestió-Dades-Centre-Educatiu
 
 Aquest programa serveix per insertar, modificar, veure i esborrar dades d'un centre educatiu. Es un projecte amb java.
 
